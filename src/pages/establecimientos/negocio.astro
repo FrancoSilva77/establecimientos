@@ -1,0 +1,27 @@
+---
+import LayoutEstablecimiento from '../../layouts/LayoutEstablecimiento.astro';
+import Establecimiento from '../../components/Establecimiento.astro';
+---
+
+<LayoutEstablecimiento title="Negocio/Servicio">
+  <Establecimiento
+    titulo="Negocio/Servicio"
+    lat={18.817247}
+    long={-97.511853}
+  >
+    <h2>Lo que ofrecemos</h2>
+    <p class="ofrecimiento">Principales productos/servicios que ofrecen</p>
+    <p class="ofrecimiento">Horario de Servicio</p>
+    <p class="ofrecimiento">Información Extra</p>
+  </Establecimiento>
+</LayoutEstablecimiento>
+
+<style>
+  .ofrecimiento {
+    padding: 0.5rem 1rem;
+    margin: 3rem 0;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(1, 139, 1, 1);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(1, 139, 1, 1);
+    box-shadow: 0px 2px 2px 0px rgba(1, 139, 1, 1);
+  }
+</style>

@@ -1,0 +1,232 @@
+---
+interface Props {
+  titulo: string;
+  lat: Number;
+  long: Number;
+}
+
+const { titulo, lat, long } = Astro.props;
+---
+
+<h1>{titulo}</h1>
+
+<main class="p-establecimiento contenedor-md">
+  <div class="galeria-detalles">
+    <div class="galeria swiper">
+      <div class="swiper-wrapper">
+        <img
+          class="swiper-slide"
+          src="/img/verdura-x/portada.jpg"
+          alt=""
+        />
+        <img
+          class="swiper-slide"
+          src="/img/verdura-x/1.jpg"
+          alt=""
+        />
+        <img
+          class="swiper-slide"
+          src="/img/verdura-x/2.png"
+          alt=""
+        />
+      </div>
+      <div class="swiper-pagination"></div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <section class="descripcion">
+      <slot />
+    </section>
+  </div>
+
+  <section class="ubicacion-contacto">
+    <div class="ubicacion">
+      <h2>Ubicación</h2>
+      <div id="map">
+        <p
+          hidden
+          id="lat"
+        >
+          {lat}
+        </p>
+        <p
+          hidden
+          id="long"
+        >
+          {long}
+        </p>
+      </div>
+    </div>
+
+    <div class="contacto">
+      <h2>Contacto</h2>
+      <div class="iconos">
+        <a href="tel:2491719236"
+          ><img
+            src="/icons/phone.svg"
+            alt="Icono telefono"
+          />012-345-67-89</a
+        >
+        <a
+          href="https://api.whatsapp.com/send/?phone=2491719236"
+          target="_blank"
+          ><img
+            src="/icons/whatsapp.svg"
+            alt="Icono Whatsapp"
+          />Whatsapp</a
+        >
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+  :root {
+    --swiper-navigation-size: 2.5rem;
+    --swiper-navigation-color: #018b01;
+    --swiper-pagination-color: #018b01;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 5rem 0;
+  }
+
+  .galeria-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .galeria-detalles {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .galeria {
+    width: 95%;
+    height: 30rem;
+    object-fit: cover;
+    margin: 0 auto;
+    flex: 5;
+  }
+
+  @media (min-width: 768px) {
+    .galeria {
+      width: 90%;
+      height: 50rem;
+    }
+  }
+
+  .descripcion {
+    flex: 4;
+  }
+
+  .p-establecimiento h2 {
+    padding: 2rem 0;
+  }
+
+  .p-establecimiento .descripcion {
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+
+  .ubicacion-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .ubicacion-contacto {
+      align-items: flex-start;
+      flex-direction: row;
+    }
+  }
+
+  .ubicacion {
+    text-align: center;
+    flex: 4;
+  }
+
+  #map {
+    height: 40rem;
+    width: 30rem;
+  }
+
+  @media (min-width: 768px) {
+    #map {
+      width: 100%;
+    }
+  }
+
+  #map h3 {
+    font-size: 2rem;
+  }
+
+  .contacto {
+    flex: 2;
+  }
+
+  .iconos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .iconos {
+      align-items: flex-start;
+    }
+  }
+
+  .iconos a {
+    margin: 2rem 0;
+    font-size: 2.2rem;
+    text-align: center;
+    border-bottom: 0.3rem solid #018b01;
+    color: var(--negro);
+  }
+
+  .iconos img {
+    width: 5rem;
+    margin: 1rem auto 0 auto;
+  }
+</style>
+
+<script>
+  const titulo = document.querySelector('h1').textContent;
+  const lat = document.querySelector('#lat').textContent;
+  const long = document.querySelector('#long').textContent;
+  const zoom = 17;
+
+  const map = L.map('map').setView([lat, long], zoom);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  L.marker([lat, long])
+    .addTo(map)
+    .bindPopup(`<h4>${titulo}</h4><p>Referencias</p>`)
+    .openPopup();
+</script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: 'true',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>

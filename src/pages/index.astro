@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EstablecimientoCard from '../components/EstablecimientoCard.astro';
+---
+
+<Layout title="Establecimientos">
+  <h1 class="titulo">Establecimientos Cuacnopalan</h1>
+
+  <main class="establecimientos contenedor">
+    <EstablecimientoCard
+      titulo="Nombre del Negocio/Servicio"
+      imagen="tienda-prueba.jpg"
+      enlace="negocio"
+    />
+  </main>
+</Layout>
+
+<style>
+  .titulo {
+    text-align: center;
+    padding: 5rem 0;
+  }
+
+  .establecimientos {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem 2rem;
+    padding: 2rem 0;
+  }
+
+  @media (min-width: 480px) {
+    .establecimientos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .establecimientos {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+interface Props {
+  titulo: string;
+  enlace: string;
+  imagen: string;
+}
+
+const { titulo, enlace, imagen } = Astro.props;
+---
+
+<article class="establecimiento">
+  <img
+    src={`/img/${imagen}`}
+    alt={`Imagen de ${titulo}`}
+  />
+  <h3>{titulo}</h3>
+  <a
+    class="btn btn-negocio"
+    href={`establecimientos/${enlace}`}
+    >Ver Establecimiento</a
+  >
+</article>
+
+<style>
+  .establecimiento h3 {
+    margin: 3rem 0;
+    text-align: center;
+  }
+
+  .btn-negocio {
+    background-color: rgb(4, 135, 4);
+    margin: 0;
+    transition: all 0.3s;
+  }
+
+  .btn-negocio:hover {
+    background-color: rgb(6, 100, 6);
+  }
+</style>

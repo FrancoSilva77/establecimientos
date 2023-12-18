@@ -1,0 +1,111 @@
+<main class="principal">
+  <div class="principal-contenido contenedor-sm">
+    <div class="principal-negocios">
+      <h1>Establecimientos Cuacnopalan</h1>
+      <p>Haz que más personas vean lo que ofreces!!</p>
+      <a
+        class="btn btn-principal"
+        href="/"
+        ><img
+          src="/img/tienda.svg"
+          alt=""
+        /> Ver Establecimientos</a
+      >
+    </div>
+
+    <div class="principal-contacto">
+      <p>
+        Si quieres que tu negocio aparezca, haz clic en el siguiente enlace.
+      </p>
+      <a
+        class="btn btn-contacto"
+        href="tel:2491719236"
+        ><img
+          src="/img/phone.svg"
+          alt="Imageb de telefono"
+        />Contacto</a
+      >
+    </div>
+  </div>
+</main>
+
+<style>
+  .principal {
+    position: relative;
+    min-height: 100vh;
+    background-image: url(/img/back.jpg);
+    background-position: bottom right;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .principal::before {
+    content: '';
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+  }
+
+  @media (min-width: 768px) {
+    .principal {
+      background-position: center;
+    }
+  }
+
+  .principal p {
+    font-size: 2rem;
+  }
+
+  @media (min-width: 768px){
+    .principal p {
+      font-size: 2.2rem;
+    }
+  }
+
+  .principal-contenido {
+    display: grid;
+    place-items: center;
+    padding-top: calc(35rem / 2);
+    text-align: center;
+    color: #fff;
+    position: relative;
+  }
+
+  .principal-negocios h1 {
+    font-size: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .principal-negocios h1 {
+      font-size: 6rem;
+    }
+  }
+
+  .principal-contacto {
+    margin-top: 5rem;
+  }
+
+  .btn-principal {
+    background-color: rgb(1, 139, 1);
+    transition: all 0.3s ease;
+    border-radius: 1.5rem;
+  }
+
+  .btn-principal:hover {
+    background-color: rgb(6, 93, 6);
+  }
+
+  .btn-contacto {
+    background-color: rgb(26, 26, 252);
+    transition: all 0.3s ease;
+    border-radius: 1.5rem;
+  }
+
+  .btn-contacto:hover {
+    background-color: rgb(10, 10, 178);
+  }
+</style>
