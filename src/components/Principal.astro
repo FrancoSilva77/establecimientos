@@ -4,7 +4,7 @@
       <h1>Establecimientos Cuacnopalan</h1>
       <p>Haz que más personas vean lo que ofreces!!</p>
       <a
-        class="btn btn-principal"
+        class="btn btn-principal no-active"
         href="/"
         ><img
           src="/img/tienda.svg"
@@ -15,7 +15,7 @@
 
     <div class="principal-contacto">
       <p>
-        Si quieres que tu negocio aparezca, haz clic en el siguiente enlace.
+        Si quieres que tu negocio aparezca aqui, haz clic en el siguiente enlace.
       </p>
       <a
         class="btn btn-contacto"
@@ -107,5 +107,10 @@
 
   .btn-contacto:hover {
     background-color: rgb(10, 10, 178);
+  }
+
+  .no-active {
+    pointer-events: none;
+    cursor: not-allowed;
   }
 </style>
