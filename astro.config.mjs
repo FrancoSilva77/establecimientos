@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@vercel/analytics'
+import vercel from '@vercel/analytics';
 
 // https://astro.build/config
 export default defineConfig({
