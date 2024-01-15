@@ -115,6 +115,18 @@ img {
   font-weight: 700;
 }
 
+.bg-green {
+  background-color: #018b01;
+  width: 30%;
+  margin: 5rem auto;
+  transition: all .3s ease;
+}
+
+.bg-green:hover{
+  background-color: #086b08;
+
+}
+
 .text-center {
   text-align: center;
 }
