@@ -1,11 +1,16 @@
 ---
 interface Props {
   titulo: string;
+  carpeta: string;
+  referencia: string;
+  telefono: string;
   lat: Number;
   long: Number;
 }
 
-const { titulo, lat, long } = Astro.props;
+const { titulo, carpeta, telefono, lat, long, referencia } = Astro.props;
+
+const path = `/img/${carpeta}/`;
 ---
 
 <h1>{titulo}</h1>
@@ -16,17 +21,17 @@ const { titulo, lat, long } = Astro.props;
       <div class="swiper-wrapper">
         <img
           class="swiper-slide"
-          src="/img/verdura-x/portada.jpg"
+          src={`${path}/1.png`}
           alt=""
         />
         <img
           class="swiper-slide"
-          src="/img/verdura-x/1.jpg"
+          src={`${path}/2.png`}
           alt=""
         />
         <img
           class="swiper-slide"
-          src="/img/verdura-x/2.png"
+          src={`${path}/3.png`}
           alt=""
         />
       </div>
@@ -57,6 +62,12 @@ const { titulo, lat, long } = Astro.props;
         >
           {long}
         </p>
+        <p
+          hidden
+          id="referencia"
+        >
+          {referencia}
+        </p>
       </div>
     </div>
 
@@ -67,10 +78,10 @@ const { titulo, lat, long } = Astro.props;
           ><img
             src="/icons/phone.svg"
             alt="Icono telefono"
-          />012-345-67-89</a
+          />{telefono}</a
         >
         <a
-          href="https://api.whatsapp.com/send/?phone=2491719236"
+          href=`https://api.whatsapp.com/send/?phone=${telefono}`
           target="_blank"
           ><img
             src="/icons/whatsapp.svg"
@@ -204,6 +215,7 @@ const { titulo, lat, long } = Astro.props;
 
 <script>
   const titulo = document.querySelector('h1').textContent;
+  const referencia = document.querySelector('#referencia').textContent;
   const lat = document.querySelector('#lat').textContent;
   const long = document.querySelector('#long').textContent;
   const zoom = 17;
@@ -213,7 +225,7 @@ const { titulo, lat, long } = Astro.props;
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
   L.marker([lat, long])
     .addTo(map)
-    .bindPopup(`<h4>${titulo}</h4><p>Referencias</p>`)
+    .bindPopup(`<h4 class='text-center'>${titulo}</h4><p>${referencia}</p>`)
     .openPopup();
 </script>
 

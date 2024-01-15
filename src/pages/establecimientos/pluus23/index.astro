@@ -1,0 +1,33 @@
+---
+import LayoutEstablecimiento from '../../../layouts/LayoutEstablecimiento.astro';
+import Establecimiento from '../../../components/Establecimiento.astro';
+---
+
+<LayoutEstablecimiento title="Pluus23">
+  <Establecimiento
+    titulo="Pluus23"
+    referencia="Enfrente de la comisaria ejidal"
+    telefono="2491719236"
+    carpeta="pluus23"
+    lat={18.8164333}
+    long={-97.5095433}
+  >
+    <h2>Lo que ofrecemos</h2>
+    <p class="ofrecimiento">
+      Micro sd 32gb, Memoria usb 32 gb, adaptador otg de micro usb a usb, destapador en forma de carta, tarjetas
+      de estudio
+    </p>
+    <p class="ofrecimiento">10:00 am - 6:00 pm</p>
+    <!-- <p class="ofrecimiento">Información Extra</p> -->
+  </Establecimiento>
+</LayoutEstablecimiento>
+
+<style>
+  .ofrecimiento {
+    padding: 0.5rem 1rem;
+    margin: 3rem 0;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(1, 139, 1, 1);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(1, 139, 1, 1);
+    box-shadow: 0px 2px 2px 0px rgba(1, 139, 1, 1);
+  }
+</style>
